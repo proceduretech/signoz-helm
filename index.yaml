@@ -1,0 +1,85 @@
+apiVersion: v1
+entries:
+  alertmanager:
+  - apiVersion: v2
+    appVersion: 0.5.0
+    created: "2022-01-27T22:54:04.668824+05:30"
+    description: The Alertmanager handles alerts sent by client applications such
+      as the Prometheus server.
+    digest: 98ef08777802aab7094c32db6093ae0a743ab237fefb28c1ebdae81c244c2c97
+    name: alertmanager
+    type: application
+    urls:
+    - https://proceduretech.github.io/signoz-helm/charts/alertmanager-0.5.0.tgz
+    version: 0.5.0
+  frontend:
+  - apiVersion: v2
+    appVersion: 0.5.4
+    created: "2022-01-27T22:54:04.669314+05:30"
+    description: A Helm chart for SigNoz Frontend Service
+    digest: 3f5557d5d27c2acc00a7d0b274d09739ea105e9318d07b4ff73c328d353eee7f
+    name: frontend
+    type: application
+    urls:
+    - https://proceduretech.github.io/signoz-helm/charts/frontend-0.5.4.tgz
+    version: 0.5.4
+  query-service:
+  - apiVersion: v2
+    appVersion: 0.5.4
+    created: "2022-01-27T22:54:04.669655+05:30"
+    description: A Helm chart for running SigNoz Query Service in Kubernetes
+    digest: ba0660438c9edb2ee5ca32aba7b5ff1265bf5c82c11df6f6856fae00e3e51341
+    name: query-service
+    type: application
+    urls:
+    - https://proceduretech.github.io/signoz-helm/charts/query-service-0.5.4.tgz
+    version: 0.5.4
+  signoz-platform:
+  - apiVersion: v2
+    appVersion: 0.5.4
+    created: "2022-01-27T22:54:04.668249+05:30"
+    dependencies:
+    - name: zookeeper
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.0.0
+    - name: query-service
+      repository: file://./signoz-charts/query-service
+      version: 0.5.4
+    - name: frontend
+      repository: file://./signoz-charts/frontend
+      version: 0.5.4
+    - name: alertmanager
+      repository: file://./signoz-charts/alertmanager
+      version: 0.5.0
+    description: SigNoz Observability Platform Helm Chart
+    digest: bc08d3557b646f3980b6d9c0e63db095995a3ef6d23cb789e313fa287fb16437
+    name: signoz-platform
+    type: application
+    urls:
+    - https://proceduretech.github.io/signoz-helm/signoz-platform-0.5.4.tgz
+    version: 0.5.4
+  zookeeper:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 3.6.2
+    created: "2022-01-27T22:54:04.670685+05:30"
+    description: A centralized service for maintaining configuration information,
+      naming, providing distributed synchronization, and providing group services
+      for distributed applications.
+    digest: 26a7923e15ab3a700b7696e4bc2e35807fe4482635970aa8d235433610770470
+    home: https://github.com/bitnami/charts/tree/master/bitnami/zookeeper
+    icon: https://bitnami.com/assets/stacks/zookeeper/img/zookeeper-stack-110x117.png
+    keywords:
+    - zookeeper
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    name: zookeeper
+    sources:
+    - https://github.com/bitnami/bitnami-docker-zookeeper
+    - https://zookeeper.apache.org/
+    urls:
+    - https://proceduretech.github.io/signoz-helm/charts/zookeeper-6.0.0.tgz
+    version: 6.0.0
+generated: "2022-01-27T22:54:04.658793+05:30"
